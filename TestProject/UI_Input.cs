@@ -92,5 +92,19 @@ namespace TestProject
             //Assert
             action.Should().Throw<ArgumentNullException>();
         }
+
+        [TestMethod]
+        public void ReadInput_WithInputGreaterThanConfigMax_ReturnsArgumentOutOfRangeException()
+        {
+            //Arrange
+            var service = new InputService();
+            var outOfRangeInput = 1001;
+
+            //Act
+            Action action = () => service.ReadInt(outOfRangeInput);
+
+            //Assert
+            action.Should().Throw<ArgumentOutOfRangeException>();
+        }
     }
 }
