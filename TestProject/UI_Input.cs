@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Code_Submission_Gerald_A_Wakefield.Services;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -61,7 +62,7 @@ namespace TestProject
             Action action = () => service.ReadInt(invalidString);
 
             //Assert
-            action.Should().Throw<ArgumentException>().WithMessage("Please Provide Only One Numeric Values");
+            action.Should().Throw<ArgumentException>().WithMessage("Please Provide Only One Numeric Value");
         }
 
         [TestMethod]
@@ -75,7 +76,7 @@ namespace TestProject
             Action action = () => service.ReadInt(invalidInts);
 
             //Assert
-            action.Should().Throw<ArgumentException>().WithMessage("Please Provide Only One Numeric Values");
+            action.Should().Throw<ArgumentException>();
         }
 
         [TestMethod]

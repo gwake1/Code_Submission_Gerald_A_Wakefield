@@ -52,8 +52,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IInputService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\InputService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
