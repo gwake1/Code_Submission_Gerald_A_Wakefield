@@ -7,6 +7,7 @@ using TestProject.TestClassBuilder;
 
 namespace TestProject.Model
 {
+    [TestClass]
     public class FactorModelTest
     {
         private static IUtil _Default_Util;

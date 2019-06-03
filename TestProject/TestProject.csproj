@@ -74,9 +74,9 @@
   <ItemGroup>
     <Compile Include="Model\FactorModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\UI_InputServiceTest.cs" />
     <Compile Include="TestClassBuilder\FactorModelClassBuilder.cs" />
     <Compile Include="TestClassBuilder\InputServiceTestClassBuilder.cs" />
-    <Compile Include="Service\UI_Input.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -88,6 +88,7 @@
       <Name>Code_Submission_Gerald_A_Wakefield</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
