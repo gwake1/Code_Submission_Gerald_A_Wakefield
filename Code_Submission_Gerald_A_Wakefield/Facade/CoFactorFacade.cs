@@ -31,6 +31,9 @@ namespace Code_Submission_Gerald_A_Wakefield.Facade
             {
                 var val = _inputService.ReadInt(input);
                 factors.Add(new Factor(val, _factorService.getSum(val)));
+            }
+            if (factors.Count < 2)
+            {
                 return true;
             }
             return false;
@@ -43,10 +46,17 @@ namespace Code_Submission_Gerald_A_Wakefield.Facade
                 throw new InvalidOperationException("The CoFactor Facade has not been populated with enough Factors");
             }
             var sum = factors.Select(x => x.Sum).Sum();
-            var commonVals = _factorService.getSum(LeastCommonMultiple(GreatestCommonDivisor()));
+            var inputs = factors.Select(x => x.Value).ToList();
+            var GCD = GreatestCommonDivisor();
+            var commonVals = 0;
+            if (GCD != 1 && !inputs.Contains(GCD))
+            {
+                commonVals = _factorService.getSum(LeastCommonMultiple(GCD));
+            }
             cleanUp();
             return sum - commonVals;
         }
+
         //Euclid's Algorithm
         private int GreatestCommonDivisor()
         {
