@@ -6,14 +6,22 @@ namespace TestProject.TestClassBuilder
 {
     public class CoFactorFacadeTestClassBuilder
     {
+        private IUtil _util;
         private IInputService _inputService;
         private IFactorService _factorService;
 
         public CoFactorFacadeTestClassBuilder()
         {
             BootStrapper.Init();
+            _util = ServiceInjector.Retrieve<IUtil>();
             _inputService = ServiceInjector.Retrieve<IInputService>();
             _factorService = ServiceInjector.Retrieve<IFactorService>();
+        }
+
+        public CoFactorFacadeTestClassBuilder WithUtil(IUtil util)
+        {
+            _util = util;
+            return this;
         }
 
         public CoFactorFacadeTestClassBuilder WithInputService(IInputService inputService)
@@ -30,7 +38,7 @@ namespace TestProject.TestClassBuilder
 
         public CoFactorFacade Build()
         {
-            return new CoFactorFacade(_inputService, _factorService);
+            return new CoFactorFacade(_util, _inputService, _factorService);
         }
     }
 }

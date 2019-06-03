@@ -1,6 +1,7 @@
 ﻿using Code_Submission_Gerald_A_Wakefield.Configuration;
 using Code_Submission_Gerald_A_Wakefield.Interface;
 using Code_Submission_Gerald_A_Wakefield.Model;
+using Code_Submission_Gerald_A_Wakefield.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,20 +10,23 @@ namespace Code_Submission_Gerald_A_Wakefield.Facade
 {
     public class CoFactorFacade
     {
+        readonly IUtil _util;
         readonly IInputService _inputService;
         readonly IFactorService _factorService;
         private List<Factor> factors = new List<Factor>();
 
         public CoFactorFacade()
         {
+            _util = ServiceInjector.Retrieve<IUtil>();
             _inputService = ServiceInjector.Retrieve<IInputService>();
             _factorService = ServiceInjector.Retrieve<IFactorService>();
         }
 
-        public CoFactorFacade(IInputService inputService, IFactorService factorService)
+        public CoFactorFacade(IUtil util, IInputService inputService, IFactorService factorService)
         {
-            _inputService = inputService;
-            _factorService = factorService;
+            _util = util;
+            _inputService = new InputService(_util);
+            _factorService = new FactorService(_util);
         }
 
         public bool Load(string input)
@@ -30,7 +34,8 @@ namespace Code_Submission_Gerald_A_Wakefield.Facade
             if (factors.Count < 2)
             {
                 var val = _inputService.ReadInt(input);
-                factors.Add(new Factor(val, _factorService.getSum(val)));
+
+                factors.Add(new Factor(_util, val, _factorService.getSum(val)));
             }
             if (factors.Count < 2)
             {
@@ -49,9 +54,10 @@ namespace Code_Submission_Gerald_A_Wakefield.Facade
             var inputs = factors.Select(x => x.Value).ToList();
             var GCD = GreatestCommonDivisor();
             var commonVals = 0;
-            if (GCD != 1 && !inputs.Contains(GCD))
+            var LCD = LeastCommonMultiple(GCD);
+            if (LCD < _util.MaxValue || GCD != 1)
             {
-                commonVals = _factorService.getSum(LeastCommonMultiple(GCD));
+                commonVals = _factorService.getSum(LCD);
             }
             cleanUp();
             return sum - commonVals;
