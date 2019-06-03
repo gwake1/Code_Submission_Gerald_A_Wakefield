@@ -1,7 +1,7 @@
-﻿using Code_Submission_Gerald_A_Wakefield.Services;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using TestProject.TestClassBuilder;
 
 namespace TestProject
 {
@@ -13,7 +13,7 @@ namespace TestProject
         public void ReadInt_WithValidString_ReturnsAnInt()
         {
             //Arrange
-            var service = new InputService();
+            var service = new InputServiceTestClassBuilder().Build();
             var validNum = "7";
 
             //Act
@@ -27,7 +27,7 @@ namespace TestProject
         public void ReadInt_WithValidStringValue7_ReturnsIntValue7()
         {
             //Arrange
-            var service = new InputService();
+            var service = new InputServiceTestClassBuilder().Build();
             var validNum = "7";
 
             //Act
@@ -41,7 +41,7 @@ namespace TestProject
         public void ReadInt_WithNegativeString_ReturnsArgumentException()
         {
             //Arrange
-            var service = new InputService();
+            var service = new InputServiceTestClassBuilder().Build();
             var invalidNum = "-1";
 
             //Act
@@ -55,7 +55,7 @@ namespace TestProject
         public void ReadInt_WithInvalidCharString_ReturnsArgumentException()
         {
             //Arrange
-            var service = new InputService();
+            var service = new InputServiceTestClassBuilder().Build();
             var invalidString = "Hello";
 
             //Act
@@ -69,7 +69,7 @@ namespace TestProject
         public void ReadInt_WithMultipleInts_ReturnsArgumentException()
         {
             //Arrange
-            var service = new InputService();
+            var service = new InputServiceTestClassBuilder().Build();
             var invalidInts = "1 2 3";
 
             //Act
@@ -83,7 +83,7 @@ namespace TestProject
         public void ReadInt_WithEmptyString_ReturnsArgumentNullException()
         {
             //Arrange
-            var service = new InputService();
+            var service = new InputServiceTestClassBuilder().Build();
             var emptyString = String.Empty;
 
             //Act
@@ -97,7 +97,7 @@ namespace TestProject
         public void ReadInput_WithInputGreaterThanConfigMax_ReturnsArgumentOutOfRangeException()
         {
             //Arrange
-            var service = new InputService();
+            var service = new InputServiceTestClassBuilder().Build();
             var outOfRangeInput = "1001";
 
             //Act
