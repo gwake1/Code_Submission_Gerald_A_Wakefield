@@ -2,6 +2,7 @@
 using Code_Submission_Gerald_A_Wakefield.Interface;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using Telerik.JustMock;
 using TestProject.TestClassBuilder;
 
@@ -55,13 +56,30 @@ namespace TestProject.Model
             var maxValue = 1000;
             var minSum = (maxValue / 2) - 1;
 
-            var util = Mock.CreateLike<IUtil>(mV => mV.MaxValue == maxValue);
+            var util = Mock.CreateLike<IUtil>(config => config.MaxValue == maxValue);
 
             //Act
             var factor = new FactorModelClassBuilder().WithUtil(util).Build(value, sum);
 
             //Assert
             factor.Sum.Should().BeGreaterOrEqualTo(minSum, "because the Sum value is 998 with a Max Value of 1000 for Input of 499");
+        }
+
+        [TestMethod]
+        public void FactorModel_WithInvalidSum_ReturnsArgumentException()
+        {
+            //Arrange
+            var value = 499;
+            var sum = 498;
+            var maxValue = 1000;
+            var minSum = (maxValue / 2) - 1;
+            var util = Mock.CreateLike<IUtil>(config => config.MaxValue == maxValue);
+
+            //Act
+            Action action = () => new FactorModelClassBuilder().WithUtil(util).Build(value, sum);
+
+            //Assert
+            action.Should().Throw<ArgumentException>().WithMessage(String.Format("The sum cannot be less than : {0}", minSum), "because the sum cannot be less than (Max Config Value / 2 ) - 1");
         }
     }
 }
