@@ -2,7 +2,7 @@
 {
     public interface IFactorService
     {
-        int getSum();
-        int getGreatestCommonMultiple();
+        int getSum(int Value);
+        int getGreatestMultiple(int Value);
     }
 }
