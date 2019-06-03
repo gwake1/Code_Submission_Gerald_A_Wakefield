@@ -98,7 +98,7 @@ namespace TestProject
         {
             //Arrange
             var service = new InputService();
-            var outOfRangeInput = 1001;
+            var outOfRangeInput = "1001";
 
             //Act
             Action action = () => service.ReadInt(outOfRangeInput);
