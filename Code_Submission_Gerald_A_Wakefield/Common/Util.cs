@@ -9,7 +9,11 @@ namespace Code_Submission_Gerald_A_Wakefield.Common
         public Util()
         {
             MaxValue = Int32.Parse(ConfigurationManager.AppSettings["MaxValue"]);
+            MaxInputValue = MaxValue - 1;
+            MinSum = (MaxValue / 2) - 1;
         }
         public int MaxValue { get; private set; }
+        public int MinSum { get; private set; }
+        public int MaxInputValue { get; private set; }
     }
 }

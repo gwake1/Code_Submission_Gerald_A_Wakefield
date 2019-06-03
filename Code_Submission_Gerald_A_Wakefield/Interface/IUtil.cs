@@ -3,5 +3,7 @@
     public interface IUtil
     {
         int MaxValue { get; }
+        int MaxInputValue { get; }
+        int MinSum { get; }
     }
 }

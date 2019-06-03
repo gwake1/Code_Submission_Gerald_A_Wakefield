@@ -28,18 +28,16 @@ namespace Code_Submission_Gerald_A_Wakefield.Model
 
         private void setSum(int sum)
         {
-            var minSum = (_util.MaxValue / 2) - 1;
-            if (sum < minSum)
+            if (sum < _util.MinSum)
             {
-                throw new ArgumentException(String.Format("The sum cannot be less than : {0}", minSum));
+                throw new ArgumentException(String.Format("The sum cannot be less than : {0}", _util.MinSum));
             }
             _sum = sum;
         }
 
         private void setValue(int value)
         {
-            var maxInputValue = _util.MaxValue - 1;
-            if (value > maxInputValue || value < 0)
+            if (value > _util.MaxInputValue || value < 0)
             {
                 throw new ArgumentOutOfRangeException();
             }

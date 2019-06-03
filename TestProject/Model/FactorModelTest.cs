@@ -55,8 +55,8 @@ namespace TestProject.Model
             var sum = 499;
             var maxValue = 1000;
             var minSum = (maxValue / 2) - 1;
+            var util = Mock.CreateLike<IUtil>(config => config.MaxValue == maxValue && config.MaxInputValue == maxValue - 1 && config.MinSum == minSum);
 
-            var util = Mock.CreateLike<IUtil>(config => config.MaxValue == maxValue);
 
             //Act
             var factor = new FactorModelClassBuilder().WithUtil(util).Build(value, sum);
@@ -73,7 +73,7 @@ namespace TestProject.Model
             var sum = 498;
             var maxValue = 1000;
             var minSum = (maxValue / 2) - 1;
-            var util = Mock.CreateLike<IUtil>(config => config.MaxValue == maxValue);
+            var util = Mock.CreateLike<IUtil>(config => config.MaxValue == maxValue && config.MaxInputValue == maxValue - 1 && config.MinSum == minSum);
 
             //Act
             Action action = () => new FactorModelClassBuilder().WithUtil(util).Build(value, sum);
