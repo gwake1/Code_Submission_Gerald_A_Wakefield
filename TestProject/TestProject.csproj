@@ -72,10 +72,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Facade\CoFactorFacade.cs" />
     <Compile Include="Model\FactorModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\UI_InputServiceTest.cs" />
+    <Compile Include="Service\FactorServiceTest.cs" />
+    <Compile Include="TestClassBuilder\CoFactorFacadeTestClassBuilder.cs" />
     <Compile Include="TestClassBuilder\FactorModelClassBuilder.cs" />
+    <Compile Include="TestClassBuilder\FactorService.cs" />
     <Compile Include="TestClassBuilder\InputServiceTestClassBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
