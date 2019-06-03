@@ -3,10 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using TestProject.TestClassBuilder;
 
-namespace TestProject
+namespace TestProject.Service
 {
     [TestClass]
-    public class UI_Input
+    public class UI_InputService
     {
 
         [TestMethod]

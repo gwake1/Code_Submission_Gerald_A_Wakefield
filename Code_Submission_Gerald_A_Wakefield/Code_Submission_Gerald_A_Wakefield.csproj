@@ -56,10 +56,14 @@
     <Compile Include="Common\Util.cs" />
     <Compile Include="Configuration\BootStrapper.cs" />
     <Compile Include="Configuration\ServiceInjector.cs" />
+    <Compile Include="Facade\FactorFacade.cs" />
+    <Compile Include="Interface\IFactorService.cs" />
     <Compile Include="Interface\IInputService.cs" />
     <Compile Include="Interface\IUtil.cs" />
+    <Compile Include="Model\Factor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FactorService.cs" />
     <Compile Include="Services\InputService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -10,6 +10,7 @@ namespace Code_Submission_Gerald_A_Wakefield.Configuration
         {
             ServiceInjector.Register<IUtil, Util>();
             ServiceInjector.Register<IInputService, InputService>();
+            ServiceInjector.Register<IFactorService, FactorService>();
         }
     }
 }

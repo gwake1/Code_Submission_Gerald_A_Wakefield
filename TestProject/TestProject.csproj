@@ -72,9 +72,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\FactorModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestClassBuilder\FactorModelClassBuilder.cs" />
     <Compile Include="TestClassBuilder\InputServiceTestClassBuilder.cs" />
-    <Compile Include="UI_Input.cs" />
+    <Compile Include="Service\UI_Input.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
