@@ -1,4 +1,4 @@
-﻿using Code_Submission_Gerald_A_Wakefield.Interface;
+﻿using Code_Submission_Gerald_A_Wakefield.Contracts;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Telerik.JustMock;

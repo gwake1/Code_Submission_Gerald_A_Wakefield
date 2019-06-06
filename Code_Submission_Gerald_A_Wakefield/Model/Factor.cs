@@ -1,5 +1,5 @@
 ﻿using Code_Submission_Gerald_A_Wakefield.Configuration;
-using Code_Submission_Gerald_A_Wakefield.Interface;
+using Code_Submission_Gerald_A_Wakefield.Contracts;
 using System;
 
 namespace Code_Submission_Gerald_A_Wakefield.Model
@@ -16,17 +16,17 @@ namespace Code_Submission_Gerald_A_Wakefield.Model
         }
         public Factor(int value, int sum) : this()
         {
-            setValue(value);
-            setSum(sum);
+            SetValue(value);
+            SetSum(sum);
         }
         public Factor(IUtil util, int value, int sum)
         {
             _util = util;
-            setValue(value);
-            setSum(sum);
+            SetValue(value);
+            SetSum(sum);
         }
 
-        private void setSum(int sum)
+        private void SetSum(int sum)
         {
             if (sum < _util.MinSum)
             {
@@ -35,11 +35,11 @@ namespace Code_Submission_Gerald_A_Wakefield.Model
             _sum = sum;
         }
 
-        private void setValue(int value)
+        private void SetValue(int value)
         {
             if (value > _util.MaxInputValue || value < 0)
             {
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException("value", String.Format("The input value cannot be greater than the default max value of {0} or less than Zero", _util.MaxValue));
             }
             _value = value;
         }

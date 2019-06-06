@@ -1,4 +1,4 @@
-﻿namespace Code_Submission_Gerald_A_Wakefield.Interface
+﻿namespace Code_Submission_Gerald_A_Wakefield.Contracts
 {
     public interface IUtil
     {

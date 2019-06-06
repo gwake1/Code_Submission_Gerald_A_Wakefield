@@ -22,6 +22,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -57,10 +59,9 @@
     <Compile Include="Configuration\BootStrapper.cs" />
     <Compile Include="Configuration\ServiceInjector.cs" />
     <Compile Include="Facade\CoFactorFacade.cs" />
-    <Compile Include="Interface\IFactorService.cs" />
-    <Compile Include="Interface\IInputService.cs" />
-    <Compile Include="Interface\IUtil.cs" />
-    <Compile Include="Model\CoFactor.cs" />
+    <Compile Include="Contracts\IFactorService.cs" />
+    <Compile Include="Contracts\IInputService.cs" />
+    <Compile Include="Contracts\IUtil.cs" />
     <Compile Include="Model\Factor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

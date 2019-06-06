@@ -1,4 +1,4 @@
-﻿using Code_Submission_Gerald_A_Wakefield.Interface;
+﻿using Code_Submission_Gerald_A_Wakefield.Contracts;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Telerik.JustMock;
@@ -18,7 +18,7 @@ namespace TestProject.Service
             var service = new FactorServiceTestClassBuilder().Build();
 
             //Act
-            var result = service.getGreatestMultiple(input);
+            var result = service.GetGreatestMultiple(input);
 
             //Assert
             result.Should().BeGreaterThan(expected, "because all valid input values should return a GetGreatestMultiple value greater than Zero");
@@ -35,7 +35,7 @@ namespace TestProject.Service
             var service = new FactorServiceTestClassBuilder().WithUtil(util).Build();
 
             //Act
-            var result = service.getGreatestMultiple(input);
+            var result = service.GetGreatestMultiple(input);
 
             //Assert
             result.Should().BeLessThan(util.MaxValue, "because 2 is evenly divisible into 1000, it should return 998 as the Greatest Multiple");
@@ -50,7 +50,7 @@ namespace TestProject.Service
             var service = new FactorServiceTestClassBuilder().Build();
 
             //Act
-            var result = service.getGreatestMultiple(input);
+            var result = service.GetGreatestMultiple(input);
 
             //Assert
             result.Should().BeGreaterThan(expected, "because valid odd factors should return a positive number less than the default value of 1000");
@@ -66,7 +66,7 @@ namespace TestProject.Service
             var service = new FactorServiceTestClassBuilder().WithUtil(util).Build();
 
             //Act
-            var result = service.getGreatestMultiple(input);
+            var result = service.GetGreatestMultiple(input);
 
             //Assert
             result.Should().BeLessThan(util.MaxValue, "because an odd number has remained that must be removed when finding the factor's greatest multiple");
@@ -83,7 +83,7 @@ namespace TestProject.Service
             var service = new FactorServiceTestClassBuilder().WithUtil(util).Build();
 
             //Act
-            var result = service.getSum(input);
+            var result = service.GetSum(input);
 
             //Assert
             result.Should().BeGreaterThan(util.MinSum, "because the sum should be greater than (Max Value / 2) - 1");
@@ -101,7 +101,7 @@ namespace TestProject.Service
             var service = new FactorServiceTestClassBuilder().WithUtil(util).Build();
 
             //Act
-            var result = service.getSum(input);
+            var result = service.GetSum(input);
 
             //Assert
             result.Should().Be(expected, "because the valid value of 3's sum sum to the default value of 1000 should be 166833");
@@ -119,7 +119,7 @@ namespace TestProject.Service
             var service = new FactorServiceTestClassBuilder().WithUtil(util).Build();
 
             //Act
-            var result = service.getSum(input);
+            var result = service.GetSum(input);
 
             //Assert
             result.Should().Be(expected, "because the valid value of 5's sum sum to the default value of 1000 should be 99500");

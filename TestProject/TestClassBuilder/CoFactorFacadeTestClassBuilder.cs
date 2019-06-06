@@ -1,6 +1,6 @@
 ﻿using Code_Submission_Gerald_A_Wakefield.Configuration;
+using Code_Submission_Gerald_A_Wakefield.Contracts;
 using Code_Submission_Gerald_A_Wakefield.Facade;
-using Code_Submission_Gerald_A_Wakefield.Interface;
 
 namespace TestProject.TestClassBuilder
 {
@@ -12,7 +12,7 @@ namespace TestProject.TestClassBuilder
 
         public CoFactorFacadeTestClassBuilder()
         {
-            BootStrapper.Init();
+            Bootstrapper.Init();
             _util = ServiceInjector.Retrieve<IUtil>();
             _inputService = ServiceInjector.Retrieve<IInputService>();
             _factorService = ServiceInjector.Retrieve<IFactorService>();

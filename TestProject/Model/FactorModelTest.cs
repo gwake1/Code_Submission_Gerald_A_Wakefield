@@ -1,5 +1,5 @@
 ﻿using Code_Submission_Gerald_A_Wakefield.Configuration;
-using Code_Submission_Gerald_A_Wakefield.Interface;
+using Code_Submission_Gerald_A_Wakefield.Contracts;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -15,7 +15,7 @@ namespace TestProject.Model
         [ClassInitialize]
         public static void ClasssInitializer(TestContext context)
         {
-            BootStrapper.Init();
+            Bootstrapper.Init();
             _Default_Util = ServiceInjector.Retrieve<IUtil>();
         }
 

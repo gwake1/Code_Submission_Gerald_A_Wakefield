@@ -1,10 +1,10 @@
 ﻿using Code_Submission_Gerald_A_Wakefield.Common;
-using Code_Submission_Gerald_A_Wakefield.Interface;
+using Code_Submission_Gerald_A_Wakefield.Contracts;
 using Code_Submission_Gerald_A_Wakefield.Services;
 
 namespace Code_Submission_Gerald_A_Wakefield.Configuration
 {
-    public class BootStrapper
+    public static class Bootstrapper
     {
         public static void Init()
         {

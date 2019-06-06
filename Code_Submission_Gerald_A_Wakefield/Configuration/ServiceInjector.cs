@@ -3,14 +3,14 @@ using Unity.Lifetime;
 
 namespace Code_Submission_Gerald_A_Wakefield.Configuration
 {
-    public class ServiceInjector
+    public static class ServiceInjector
     {
         private static readonly IUnityContainer UnityContainer = new UnityContainer();
-        public static void Register<I, T>() where T : I
+        public static void Register<T, I>() where I : T
         {
-            UnityContainer.RegisterType<I, T>(new ContainerControlledLifetimeManager());
+            UnityContainer.RegisterType<T, I>(new ContainerControlledLifetimeManager());
         }
-        public static void InjectStub<I>(I instance)
+        public static void InjectStub<T>(T instance)
         {
             UnityContainer.RegisterInstance(instance, new ContainerControlledLifetimeManager());
         }

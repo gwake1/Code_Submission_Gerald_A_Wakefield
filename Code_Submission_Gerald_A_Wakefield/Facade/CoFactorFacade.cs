@@ -1,5 +1,5 @@
 ﻿using Code_Submission_Gerald_A_Wakefield.Configuration;
-using Code_Submission_Gerald_A_Wakefield.Interface;
+using Code_Submission_Gerald_A_Wakefield.Contracts;
 using Code_Submission_Gerald_A_Wakefield.Model;
 using Code_Submission_Gerald_A_Wakefield.Services;
 using System;
@@ -35,7 +35,7 @@ namespace Code_Submission_Gerald_A_Wakefield.Facade
             {
                 var val = _inputService.ReadInt(input);
 
-                factors.Add(new Factor(_util, val, _factorService.getSum(val)));
+                factors.Add(new Factor(_util, val, _factorService.GetSum(val)));
             }
             if (factors.Count < 2)
             {
@@ -51,15 +51,14 @@ namespace Code_Submission_Gerald_A_Wakefield.Facade
                 throw new InvalidOperationException("The CoFactor Facade has not been populated with enough Factors");
             }
             var sum = factors.Select(x => x.Sum).Sum();
-            var inputs = factors.Select(x => x.Value).ToList();
             var GCD = GreatestCommonDivisor();
             var commonVals = 0;
             var LCD = LeastCommonMultiple(GCD);
             if (LCD < _util.MaxValue || GCD != 1)
             {
-                commonVals = _factorService.getSum(LCD);
+                commonVals = _factorService.GetSum(LCD);
             }
-            cleanUp();
+            Cleanup();
             return sum - commonVals;
         }
 
@@ -91,7 +90,7 @@ namespace Code_Submission_Gerald_A_Wakefield.Facade
             return a * b / GCD;
         }
 
-        private void cleanUp()
+        private void Cleanup()
         {
             factors.Clear();
         }

@@ -1,5 +1,5 @@
 ﻿using Code_Submission_Gerald_A_Wakefield.Configuration;
-using Code_Submission_Gerald_A_Wakefield.Interface;
+using Code_Submission_Gerald_A_Wakefield.Contracts;
 using System;
 
 namespace Code_Submission_Gerald_A_Wakefield.Services
@@ -18,16 +18,16 @@ namespace Code_Submission_Gerald_A_Wakefield.Services
             _util = util;
         }
 
-        public int getGreatestMultiple(int Value)
+        public int GetGreatestMultiple(int Value)
         {
-            var maxIteration = getMaxIterations(Value);
+            var maxIteration = GetMaxIterations(Value);
             return Value * maxIteration;
         }
 
-        public int getSum(int Value)
+        public int GetSum(int Value)
         {
             var sum = 0;
-            var maxIteration = getMaxIterations(Value);
+            var maxIteration = GetMaxIterations(Value);
             var count = 1;
             {
                 do
@@ -39,16 +39,16 @@ namespace Code_Submission_Gerald_A_Wakefield.Services
             return sum;
         }
 
-        private bool isEvenDivisor(int val)
+        private bool IsEvenDivisor(int val)
         {
             return _util.MaxValue % val == 0 ? true : false;
         }
 
-        private int getMaxIterations(int val)
+        private int GetMaxIterations(int val)
         {
             double count = _util.MaxValue / val;
             var roundedDown = Convert.ToInt32(Math.Floor(count));
-            if (isEvenDivisor(val))
+            if (IsEvenDivisor(val))
             {
                 return roundedDown - 1;
             }

@@ -76,7 +76,7 @@ namespace TestProject.Service
             Action action = () => service.ReadInt(invalidInts);
 
             //Assert
-            action.Should().Throw<ArgumentException>();
+            action.Should().Throw<FormatException>();
         }
 
         [TestMethod]

@@ -9,7 +9,7 @@ namespace Code_Submission_Gerald_A_Wakefield
         static void Main(string[] args)
         {
             // Loads Unity DI Container and Registers Types
-            BootStrapper.Init();
+            Bootstrapper.Init();
 
             // Instantiates Facade with Services to calculate the desired sum of 2 inputs to Max value configured in App.Config
             var facade = new CoFactorFacade();

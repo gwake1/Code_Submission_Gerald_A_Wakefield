@@ -1,4 +1,4 @@
-﻿using Code_Submission_Gerald_A_Wakefield.Interface;
+﻿using Code_Submission_Gerald_A_Wakefield.Contracts;
 using System;
 using System.Configuration;
 
